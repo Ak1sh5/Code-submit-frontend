@@ -19,10 +19,12 @@ const ViewForm = () => {
             console.error('Error fetching data:', error);
         }
     };
+
     const formatDate = (timestamp) => {
         const date = new Date(timestamp);
         return date.toLocaleString(); // Format the date according to the user's locale
     };
+
     return (
         <div className="view-form-container">
             <h2>View Submitted Forms</h2>
@@ -40,9 +42,9 @@ const ViewForm = () => {
                     {formEntries.map((entry, index) => (
                         <tr key={index}>
                             <td>{entry.username}</td>
-                            <td>{entry.language}</td>
+                            <td>{entry.lang || '-'}</td>
                             <td>{entry.stdin}</td>
-                            <td>{entry.sourceCode ? entry.sourceCode.slice(0, 100) : ''}</td> {/* Check if sourceCode is not undefined or null */}
+                            <td>{entry.source_code ? entry.source_code.slice(0, 100) : '-'}</td>
                             <td>{formatDate(entry.timestamp)}</td>
                         </tr>
                     ))}
