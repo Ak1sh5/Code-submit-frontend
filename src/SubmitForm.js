@@ -22,7 +22,7 @@ const SubmitForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:4000/submit', formData);
+            await axios.post('https://code-submit-backend.onrender.com/submit', formData);
             console.log("Success");
             setFormData(initialState);
         } catch (error) {

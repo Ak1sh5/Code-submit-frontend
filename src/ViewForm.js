@@ -12,7 +12,7 @@ const ViewForm = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/submissions');
+            const response = await axios.get('https://code-submit-backend.onrender.com/submissions');
             setFormEntries(response.data);
             console.log(response.data);
         } catch (error) {
