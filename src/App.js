@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import SubmitForm from './SubmitForm';
+import './App.css'; // Import CSS file for styling
+import ViewForm from './ViewForm';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <h2>Hi, welcome user!</h2>
+        <div className="buttons">
+          <Link to="/submit-form" className="submit-button">Submit Form</Link>
+          <Link to="/view-form" className="view-button">View Form</Link>
+        </div>
+        <Routes>
+          <Route path='/submit-form' element={<SubmitForm />} />
+          <Route path="/view-form" element={<ViewForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
